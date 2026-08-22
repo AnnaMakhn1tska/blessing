@@ -52,6 +52,9 @@ body {
     user-select: none;
 
     position: relative;
+
+    transition:
+        background-image 0.5s ease;
 }
 
 body::before {
@@ -60,15 +63,139 @@ body::before {
     position: fixed;
     inset: 0;
 
-    background: rgba(0, 0, 0, 0.08);
+    background:
+        rgba(0, 0, 0, 0.08);
 
     pointer-events: none;
+
     z-index: 0;
 }
 
 
 /* =========================
-   START
+   BACKGROUND SELECTOR
+   ========================= */
+
+#backgroundSelector {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+#backgroundBlur {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.18);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+}
+
+
+/* =========================
+   COLOR GRID
+   ========================= */
+
+#colorGrid {
+    position: relative;
+
+    z-index: 1001;
+
+    width: min(86vw, 380px);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 18px;
+
+    padding: 10px;
+}
+
+
+/* =========================
+   COLOR SQUARE
+   ========================= */
+
+.colorChoice {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    border-radius: 22px;
+
+    border:
+        3px solid
+        rgba(255,255,255,0.9);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,0.25);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease;
+
+    animation:
+        colorAppear 0.45s ease backwards;
+}
+
+.colorChoice:active {
+    transform:
+        scale(0.9);
+}
+
+
+/* =========================
+   COLORS
+   ========================= */
+
+#pinkChoice {
+    background: #ff69b4;
+    animation-delay: 0.05s;
+}
+
+#blueChoice {
+    background: #3498db;
+    animation-delay: 0.10s;
+}
+
+#greenChoice {
+    background: #2ecc71;
+    animation-delay: 0.15s;
+}
+
+#blackChoice {
+    background: #111111;
+    animation-delay: 0.20s;
+}
+
+#yellowChoice {
+    background: #f1c40f;
+    animation-delay: 0.25s;
+}
+
+#purpleChoice {
+    background: #8e44ad;
+    animation-delay: 0.30s;
+}
+
+
+/* =========================
+   MAIN CONTENT
    ========================= */
 
 #startScreen {
@@ -81,6 +208,7 @@ body::before {
     min-height: 100dvh;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
@@ -97,7 +225,8 @@ body::before {
 #wishButton {
     position: relative;
 
-    width: min(720px, 82vw);
+    width:
+        min(720px, 82vw);
 
     cursor: pointer;
 
@@ -107,7 +236,8 @@ body::before {
 }
 
 #wishButton:active {
-    transform: scale(0.94);
+    transform:
+        scale(0.94);
 }
 
 #wishButton img {
@@ -118,7 +248,9 @@ body::before {
 }
 
 
-/* TEXT ON BUTTON */
+/* =========================
+   BUTTON TEXT
+   ========================= */
 
 #buttonText {
     position: absolute;
@@ -201,7 +333,8 @@ body::before {
 }
 
 #soundButton:active {
-    transform: scale(0.9);
+    transform:
+        scale(0.9);
 }
 
 #soundButton img {
@@ -256,6 +389,7 @@ body::before {
     display: none;
 
     flex-direction: column;
+
     align-items: center;
 
     padding-top: 15vh;
@@ -301,7 +435,8 @@ body::before {
 }
 
 #backButton:active {
-    transform: scale(0.9);
+    transform:
+        scale(0.9);
 }
 
 #backButton img {
@@ -314,7 +449,9 @@ body::before {
 }
 
 
-/* ARROW */
+/* =========================
+   ARROW
+   ========================= */
 
 #backArrow {
     position: absolute;
@@ -418,7 +555,8 @@ body::before {
 }
 
 #heartButton:active {
-    transform: scale(0.94);
+    transform:
+        scale(0.94);
 }
 
 #heartButton img {
@@ -493,6 +631,7 @@ body::before {
     width: 85vw;
 
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -561,7 +700,8 @@ body::before {
 }
 
 #exitSoundButton:active {
-    transform: scale(0.94);
+    transform:
+        scale(0.94);
 }
 
 #exitSoundButton img {
@@ -750,11 +890,31 @@ body::before {
 @keyframes heartBeat {
 
     0%, 100% {
-        transform: scale(1);
+        transform:
+            scale(1);
     }
 
     50% {
-        transform: scale(1.2);
+        transform:
+            scale(1.2);
+    }
+}
+
+
+@keyframes colorAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.65);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
     }
 }
 
@@ -787,6 +947,11 @@ body::before {
 
         margin-top: 13px;
     }
+
+    #colorGrid {
+        width: min(82vw, 330px);
+        gap: 12px;
+    }
 }
 
 
@@ -805,6 +970,12 @@ body::before {
     #heartButton {
         width: 190px;
     }
+
+    #colorGrid {
+        width: 82vw;
+        gap: 10px;
+    }
+
 }
 
 </style>
@@ -813,6 +984,57 @@ body::before {
 
 
 <body>
+
+
+<!-- =========================
+     BACKGROUND SELECTOR
+     ========================= -->
+
+<div id="backgroundSelector">
+
+    <div id="backgroundBlur"></div>
+
+    <div id="colorGrid">
+
+        <div
+            class="colorChoice"
+            id="pinkChoice"
+            data-background="bgs/bg1.jpg">
+        </div>
+
+        <div
+            class="colorChoice"
+            id="blueChoice"
+            data-background="bgs/bg2.jpg">
+        </div>
+
+        <div
+            class="colorChoice"
+            id="greenChoice"
+            data-background="bgs/bg3.jpg">
+        </div>
+
+        <div
+            class="colorChoice"
+            id="blackChoice"
+            data-background="bgs/bg4.jpg">
+        </div>
+
+        <div
+            class="colorChoice"
+            id="yellowChoice"
+            data-background="bgs/bg5.jpg">
+        </div>
+
+        <div
+            class="colorChoice"
+            id="purpleChoice"
+            data-background="bgs/bg6.jpg">
+        </div>
+
+    </div>
+
+</div>
 
 
 <!-- =========================
@@ -980,6 +1202,100 @@ body::before {
 
 
 /* =========================
+   BACKGROUND SELECTION
+   ========================= */
+
+const savedBackground =
+    localStorage.getItem(
+        "selectedBackground"
+    );
+
+
+const backgroundSelector =
+    document.getElementById(
+        "backgroundSelector"
+    );
+
+
+/*
+   Set saved background
+*/
+
+if (savedBackground) {
+
+    document.body.style.backgroundImage =
+        `url("${savedBackground}")`;
+
+    backgroundSelector.style.display =
+        "none";
+
+} else {
+
+    /*
+       First launch:
+       show selector
+    */
+
+    backgroundSelector.style.display =
+        "flex";
+
+}
+
+
+/* =========================
+   BACKGROUND CHOICES
+   ========================= */
+
+const colorChoices =
+    document.querySelectorAll(
+        ".colorChoice"
+    );
+
+
+colorChoices.forEach(
+    function(choice) {
+
+        choice.addEventListener(
+            "click",
+            function() {
+
+                const selectedBackground =
+                    choice.dataset.background;
+
+
+                /*
+                   Change background
+                */
+
+                document.body.style.backgroundImage =
+                    `url("${selectedBackground}")`;
+
+
+                /*
+                   Save selection
+                */
+
+                localStorage.setItem(
+                    "selectedBackground",
+                    selectedBackground
+                );
+
+
+                /*
+                   Hide selector
+                */
+
+                backgroundSelector.style.display =
+                    "none";
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================
    AUDIO
    ========================= */
 
@@ -1016,7 +1332,9 @@ heartSound.volume = 0.35;
 function startMusic() {
 
     backgroundMusic.volume =
-        Number(volumeSlider.value);
+        Number(
+            volumeSlider.value
+        );
 
     backgroundMusic
         .play()
@@ -1058,7 +1376,9 @@ function playClick() {
     clickSound.currentTime = 0;
 
     clickSound.volume =
-        Number(volumeSlider.value);
+        Number(
+            volumeSlider.value
+        );
 
     clickSound
         .play()
@@ -1075,7 +1395,9 @@ function playHeartSound() {
     heartSound.currentTime = 0;
 
     heartSound.volume =
-        Number(volumeSlider.value);
+        Number(
+            volumeSlider.value
+        );
 
     heartSound
         .play()
@@ -1224,6 +1546,7 @@ function randomDifferent(
 function showWish() {
 
     playClick();
+
     startMusic();
 
 
@@ -1268,27 +1591,37 @@ function showWish() {
 
     document.getElementById(
         "startScreen"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
         "resultScreen"
-    ).style.display = "flex";
+    ).style.display =
+        "flex";
 
 
-    /* restart animations */
+    /*
+       Restart animations
+    */
 
-    picture.style.animation = "none";
-    quote.style.animation = "none";
+    picture.style.animation =
+        "none";
+
+    quote.style.animation =
+        "none";
+
 
     void picture.offsetWidth;
     void quote.offsetWidth;
+
 
     picture.style.animation =
         "pictureAppear 0.7s ease";
 
     quote.style.animation =
         "quoteAppear 0.8s ease";
+
 }
 
 
@@ -1300,14 +1633,18 @@ function goBack() {
 
     playClick();
 
+
     document.getElementById(
         "resultScreen"
-    ).style.display = "none";
+    ).style.display =
+        "none";
 
 
     document.getElementById(
         "startScreen"
-    ).style.display = "flex";
+    ).style.display =
+        "flex";
+
 }
 
 
