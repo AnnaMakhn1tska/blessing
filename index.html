@@ -40,7 +40,7 @@ body {
     min-height: 100dvh;
 
     background:
-        url("bgs/bg1.jpg")
+        url("bgs/bg1.png")
         center center /
         cover
         no-repeat;
@@ -959,6 +959,7 @@ body::before {
     }
 }
 
+
 @media (max-width: 360px) {
 
     #wishPicture {
@@ -1003,37 +1004,37 @@ body::before {
         <div
             class="colorChoice"
             id="pinkChoice"
-            data-background="bgs/bg1.jpg">
+            data-background="bgs/bg1.png">
         </div>
 
         <div
             class="colorChoice"
             id="blueChoice"
-            data-background="bgs/bg2.jpg">
+            data-background="bgs/bg2.png">
         </div>
 
         <div
             class="colorChoice"
             id="greenChoice"
-            data-background="bgs/bg3.jpg">
+            data-background="bgs/bg3.png">
         </div>
 
         <div
             class="colorChoice"
             id="blackChoice"
-            data-background="bgs/bg4.jpg">
+            data-background="bgs/bg4.png">
         </div>
 
         <div
             class="colorChoice"
             id="yellowChoice"
-            data-background="bgs/bg5.jpg">
+            data-background="bgs/bg5.png">
         </div>
 
         <div
             class="colorChoice"
             id="purpleChoice"
-            data-background="bgs/bg6.jpg">
+            data-background="bgs/bg6.png">
         </div>
 
     </div>
@@ -1052,11 +1053,13 @@ body::before {
     preload="auto">
 </audio>
 
+
 <audio
     id="clickSound"
     src="sounds/click1.mp3"
     preload="auto">
 </audio>
+
 
 <audio
     id="heartSound"
@@ -1073,7 +1076,7 @@ body::before {
 
     <img
         class="themeButtonImage"
-        src="btns/bt1.jpg">
+        src="btns/bt1.png">
 
     <div id="soundText">
         sound
@@ -1092,13 +1095,14 @@ body::before {
 
         <img
             class="themeButtonImage"
-            src="btns/bt1.jpg">
+            src="btns/bt1.png">
 
         <div id="buttonText">
             click for the wish
         </div>
 
     </div>
+
 
     <div id="instagram">
         inst: himkaqxx
@@ -1117,7 +1121,7 @@ body::before {
 
         <img
             class="themeButtonImage"
-            src="btns/bt1.jpg">
+            src="btns/bt1.png">
 
         <div id="backArrow">
             ←
@@ -1139,7 +1143,7 @@ body::before {
 
         <img
             class="themeButtonImage"
-            src="btns/bt1.jpg">
+            src="btns/bt1.png">
 
         <div id="heartText">
             give me a heart
@@ -1173,7 +1177,7 @@ body::before {
 
             <img
                 class="themeButtonImage"
-                src="btns/bt1.jpg">
+                src="btns/bt1.png">
 
             <div id="exitSoundText">
                 exit
@@ -1207,30 +1211,29 @@ body::before {
 
 <script>
 
-
 /* =========================
    BACKGROUND + BUTTON THEMES
    ========================= */
 
 const buttonThemes = {
 
-    "bgs/bg1.jpg":
-        "btns/bt1.jpg",
+    "bgs/bg1.png":
+        "btns/bt1.png",
 
-    "bgs/bg2.jpg":
-        "btns/bt2.jpg",
+    "bgs/bg2.png":
+        "btns/bt2.png",
 
-    "bgs/bg3.jpg":
-        "btns/bt6.jpg",
+    "bgs/bg3.png":
+        "btns/bt6.png",
 
-    "bgs/bg4.jpg":
-        "btns/bt4.jpg",
+    "bgs/bg4.png":
+        "btns/bt4.png",
 
-    "bgs/bg5.jpg":
-        "btns/bt5.jpg",
+    "bgs/bg5.png":
+        "btns/bt5.png",
 
-    "bgs/bg6.jpg":
-        "btns/bt3.jpg"
+    "bgs/bg6.png":
+        "btns/bt3.png"
 
 };
 
@@ -1244,12 +1247,6 @@ const backgroundSelector =
 const colorChoices =
     document.querySelectorAll(
         ".colorChoice"
-    );
-
-
-const themeButtonImages =
-    document.querySelectorAll(
-        ".themeButtonImage"
     );
 
 
@@ -1268,7 +1265,6 @@ function updateButtonTheme(
         return;
     }
 
-
     document
         .querySelectorAll(
             ".themeButtonImage"
@@ -1286,7 +1282,7 @@ function updateButtonTheme(
 
 
 /* =========================
-   SAVED BACKGROUND
+   LOAD SAVED THEME
    ========================= */
 
 const savedBackground =
@@ -1330,28 +1326,20 @@ colorChoices.forEach(
                     choice.dataset.background;
 
 
-                /* Change background */
-
                 document.body.style.backgroundImage =
                     `url("${selectedBackground}")`;
 
-
-                /* Change buttons */
 
                 updateButtonTheme(
                     selectedBackground
                 );
 
 
-                /* Save background */
-
                 localStorage.setItem(
                     "selectedBackground",
                     selectedBackground
                 );
 
-
-                /* Hide selector */
 
                 backgroundSelector.style.display =
                     "none";
@@ -1372,15 +1360,18 @@ const backgroundMusic =
         "backgroundMusic"
     );
 
+
 const clickSound =
     document.getElementById(
         "clickSound"
     );
 
+
 const heartSound =
     document.getElementById(
         "heartSound"
     );
+
 
 const volumeSlider =
     document.getElementById(
@@ -1591,11 +1582,9 @@ const quotes = [
 ];
 
 
-let lastPicture =
-    -1;
+let lastPicture = -1;
 
-let lastQuote =
-    -1;
+let lastQuote = -1;
 
 
 /* =========================
@@ -1667,6 +1656,7 @@ function showWish() {
             "wishPicture"
         );
 
+
     const quote =
         document.getElementById(
             "quote"
@@ -1696,8 +1686,6 @@ function showWish() {
     ).style.display =
         "flex";
 
-
-    /* Restart animations */
 
     picture.style.animation =
         "none";
@@ -1879,7 +1867,6 @@ heartMessage.addEventListener(
 
     }
 );
-
 
 </script>
 
