@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -16,6 +18,10 @@
 <title>Wish ♡</title>
 
 <style>
+
+/* =========================
+   RESET
+   ========================= */
 
 * {
     box-sizing: border-box;
@@ -50,6 +56,7 @@ body {
 
 body::before {
     content: "";
+
     position: fixed;
     inset: 0;
 
@@ -106,6 +113,7 @@ body::before {
 #wishButton img {
     width: 100%;
     height: auto;
+
     display: block;
 }
 
@@ -463,7 +471,6 @@ body::before {
     z-index: 100;
 }
 
-
 #soundBlur {
     position: absolute;
     inset: 0;
@@ -477,7 +484,6 @@ body::before {
     -webkit-backdrop-filter:
         blur(12px);
 }
-
 
 #soundPanel {
     position: relative;
@@ -513,7 +519,6 @@ body::before {
     outline: none;
 }
 
-
 #volumeSlider::-webkit-slider-thumb {
     appearance: none;
     -webkit-appearance: none;
@@ -527,7 +532,6 @@ body::before {
 
     border: 3px solid white;
 }
-
 
 #volumeSlider::-moz-range-thumb {
     width: 30px;
@@ -562,6 +566,7 @@ body::before {
 
 #exitSoundButton img {
     width: 100%;
+
     display: block;
 }
 
@@ -589,6 +594,84 @@ body::before {
 
     text-shadow:
         1px 1px 3px #9e2164;
+}
+
+
+/* =========================
+   HEART MESSAGE
+   ========================= */
+
+#heartMessage {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 200;
+
+    background:
+        rgba(0, 0, 0, 0.15);
+
+    backdrop-filter:
+        blur(6px);
+
+    -webkit-backdrop-filter:
+        blur(6px);
+}
+
+
+#heartMessageBox {
+    width:
+        min(80vw, 340px);
+
+    padding:
+        25px 20px;
+
+    background:
+        rgba(255, 105, 180, 0.94);
+
+    border:
+        3px solid white;
+
+    border-radius: 25px;
+
+    color: white;
+
+    font-size:
+        clamp(18px, 5vw, 24px);
+
+    font-weight: 800;
+
+    line-height: 1.3;
+
+    text-align: center;
+
+    text-shadow:
+        1px 1px 4px #9e2164;
+
+    box-shadow:
+        0 8px 30px
+        rgba(0,0,0,0.3);
+
+    animation:
+        heartMessageAppear 0.35s ease;
+}
+
+
+#heartEmoji {
+    display: block;
+
+    font-size: 55px;
+
+    margin-bottom: 10px;
+
+    animation:
+        heartBeat 0.8s infinite;
 }
 
 
@@ -646,7 +729,39 @@ body::before {
 }
 
 
-/* SMALL SCREENS */
+@keyframes heartMessageAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1);
+    }
+}
+
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+/* =========================
+   SMALL SCREENS
+   ========================= */
 
 @media (max-height: 650px) {
 
@@ -656,16 +771,20 @@ body::before {
 
     #wishPicture {
         max-height: 30vh;
-        width: min(60vw, 230px);
+
+        width:
+            min(60vw, 230px);
     }
 
     #quote {
         font-size: 15px;
+
         margin-top: 12px;
     }
 
     #heartButton {
         width: 200px;
+
         margin-top: 13px;
     }
 }
@@ -679,6 +798,7 @@ body::before {
 
     #quote {
         width: 92%;
+
         font-size: 14px;
     }
 
@@ -688,6 +808,7 @@ body::before {
 }
 
 </style>
+
 </head>
 
 
@@ -825,6 +946,25 @@ body::before {
             </div>
 
         </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     HEART MESSAGE
+     ========================= -->
+
+<div id="heartMessage">
+
+    <div id="heartMessageBox">
+
+        <span id="heartEmoji">
+            💗
+        </span>
+
+        Thank you for the heart! ♡
 
     </div>
 
@@ -1164,6 +1304,7 @@ document.getElementById(
 
         soundMenu.style.display =
             "flex";
+
     }
 );
 
@@ -1186,6 +1327,7 @@ volumeSlider.addEventListener(
 
         clickSound.volume =
             volume;
+
     }
 );
 
@@ -1204,6 +1346,7 @@ document.getElementById(
 
         soundMenu.style.display =
             "none";
+
     }
 );
 
@@ -1211,6 +1354,12 @@ document.getElementById(
 /* =========================
    HEART
    ========================= */
+
+const heartMessage =
+    document.getElementById(
+        "heartMessage"
+    );
+
 
 document.getElementById(
     "heartButton"
@@ -1220,13 +1369,27 @@ document.getElementById(
 
         playClick();
 
-        /*
-          Push-сповіщення тут
-          не створюємо.
-        */
+        heartMessage.style.display =
+            "flex";
 
     }
 );
+
+
+/* =========================
+   CLOSE HEART MESSAGE
+   ========================= */
+
+heartMessage.addEventListener(
+    "click",
+    function() {
+
+        heartMessage.style.display =
+            "none";
+
+    }
+);
+
 
 </script>
 
