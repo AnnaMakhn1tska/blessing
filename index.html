@@ -836,6 +836,15 @@ body::before {
 </audio>
 
 
+<!-- HEART SOUND -->
+
+<audio
+    id="heartSound"
+    src="sounds/heart1.mp3"
+    preload="auto">
+</audio>
+
+
 <!-- =========================
      SOUND BUTTON
      ========================= -->
@@ -857,7 +866,6 @@ body::before {
 
 <div id="startScreen">
 
-
     <div id="wishButton">
 
         <img src="btns/bt1.png">
@@ -873,7 +881,6 @@ body::before {
         inst: himkaqxx
     </div>
 
-
 </div>
 
 
@@ -882,7 +889,6 @@ body::before {
      ========================= -->
 
 <div id="resultScreen">
-
 
     <div id="backButton">
 
@@ -913,7 +919,6 @@ body::before {
         </div>
 
     </div>
-
 
 </div>
 
@@ -988,6 +993,11 @@ const clickSound =
         "clickSound"
     );
 
+const heartSound =
+    document.getElementById(
+        "heartSound"
+    );
+
 const volumeSlider =
     document.getElementById(
         "volumeSlider"
@@ -996,12 +1006,12 @@ const volumeSlider =
 
 backgroundMusic.volume = 0.35;
 clickSound.volume = 0.35;
+heartSound.volume = 0.35;
 
 
-/*
-   iPhone/Safari може блокувати
-   autoplay до першого дотику.
-*/
+/* =========================
+   START MUSIC
+   ========================= */
 
 function startMusic() {
 
@@ -1051,6 +1061,23 @@ function playClick() {
         Number(volumeSlider.value);
 
     clickSound
+        .play()
+        .catch(() => {});
+}
+
+
+/* =========================
+   HEART SOUND
+   ========================= */
+
+function playHeartSound() {
+
+    heartSound.currentTime = 0;
+
+    heartSound.volume =
+        Number(volumeSlider.value);
+
+    heartSound
         .play()
         .catch(() => {});
 }
@@ -1328,6 +1355,9 @@ volumeSlider.addEventListener(
         clickSound.volume =
             volume;
 
+        heartSound.volume =
+            volume;
+
     }
 );
 
@@ -1352,7 +1382,7 @@ document.getElementById(
 
 
 /* =========================
-   HEART
+   HEART MESSAGE
    ========================= */
 
 const heartMessage =
@@ -1361,13 +1391,17 @@ const heartMessage =
     );
 
 
+/* =========================
+   HEART BUTTON
+   ========================= */
+
 document.getElementById(
     "heartButton"
 ).addEventListener(
     "click",
     function() {
 
-        playClick();
+        playHeartSound();
 
         heartMessage.style.display =
             "flex";
@@ -1394,4 +1428,5 @@ heartMessage.addEventListener(
 </script>
 
 </body>
+
 </html>
