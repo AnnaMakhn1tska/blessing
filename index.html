@@ -67,7 +67,6 @@ body::before {
         rgba(0, 0, 0, 0.08);
 
     pointer-events: none;
-
     z-index: 0;
 }
 
@@ -112,7 +111,8 @@ body::before {
 
     z-index: 1001;
 
-    width: min(86vw, 380px);
+    width:
+        min(86vw, 380px);
 
     display: grid;
 
@@ -131,6 +131,7 @@ body::before {
 
 .colorChoice {
     width: 100%;
+
     aspect-ratio: 1 / 1;
 
     border-radius: 22px;
@@ -150,7 +151,9 @@ body::before {
         box-shadow 0.18s ease;
 
     animation:
-        colorAppear 0.45s ease backwards;
+        colorAppear
+        0.45s ease
+        backwards;
 }
 
 .colorChoice:active {
@@ -195,7 +198,7 @@ body::before {
 
 
 /* =========================
-   MAIN CONTENT
+   START
    ========================= */
 
 #startScreen {
@@ -503,7 +506,8 @@ body::before {
         );
 
     animation:
-        pictureAppear 0.7s ease;
+        pictureAppear
+        0.7s ease;
 }
 
 
@@ -532,7 +536,8 @@ body::before {
         1px 1px 4px #9e2164;
 
     animation:
-        quoteAppear 0.8s ease;
+        quoteAppear
+        0.8s ease;
 }
 
 
@@ -551,7 +556,8 @@ body::before {
     cursor: pointer;
 
     animation:
-        quoteAppear 1s ease;
+        quoteAppear
+        1s ease;
 }
 
 #heartButton:active {
@@ -669,7 +675,8 @@ body::before {
 
     background: #9e2164;
 
-    border: 3px solid white;
+    border:
+        3px solid white;
 }
 
 #volumeSlider::-moz-range-thumb {
@@ -680,7 +687,8 @@ body::before {
 
     background: #9e2164;
 
-    border: 3px solid white;
+    border:
+        3px solid white;
 }
 
 
@@ -764,7 +772,6 @@ body::before {
         blur(6px);
 }
 
-
 #heartMessageBox {
     width:
         min(80vw, 340px);
@@ -799,9 +806,9 @@ body::before {
         rgba(0,0,0,0.3);
 
     animation:
-        heartMessageAppear 0.35s ease;
+        heartMessageAppear
+        0.35s ease;
 }
-
 
 #heartEmoji {
     display: block;
@@ -811,7 +818,8 @@ body::before {
     margin-bottom: 10px;
 
     animation:
-        heartBeat 0.8s infinite;
+        heartBeat
+        0.8s infinite;
 }
 
 
@@ -829,7 +837,6 @@ body::before {
         opacity: 1;
     }
 }
-
 
 @keyframes pictureAppear {
 
@@ -850,7 +857,6 @@ body::before {
     }
 }
 
-
 @keyframes quoteAppear {
 
     from {
@@ -867,7 +873,6 @@ body::before {
             translateY(0);
     }
 }
-
 
 @keyframes heartMessageAppear {
 
@@ -886,7 +891,6 @@ body::before {
     }
 }
 
-
 @keyframes heartBeat {
 
     0%, 100% {
@@ -899,7 +903,6 @@ body::before {
             scale(1.2);
     }
 }
-
 
 @keyframes colorAppear {
 
@@ -949,11 +952,12 @@ body::before {
     }
 
     #colorGrid {
-        width: min(82vw, 330px);
+        width:
+            min(82vw, 330px);
+
         gap: 12px;
     }
 }
-
 
 @media (max-width: 360px) {
 
@@ -973,9 +977,9 @@ body::before {
 
     #colorGrid {
         width: 82vw;
+
         gap: 10px;
     }
-
 }
 
 </style>
@@ -1048,17 +1052,11 @@ body::before {
     preload="auto">
 </audio>
 
-
-<!-- CLICK SOUND -->
-
 <audio
     id="clickSound"
     src="sounds/click1.mp3"
     preload="auto">
 </audio>
-
-
-<!-- HEART SOUND -->
 
 <audio
     id="heartSound"
@@ -1073,7 +1071,9 @@ body::before {
 
 <div id="soundButton">
 
-    <img src="btns/bt1.png">
+    <img
+        class="themeButtonImage"
+        src="btns/bt1.jpg">
 
     <div id="soundText">
         sound
@@ -1090,14 +1090,15 @@ body::before {
 
     <div id="wishButton">
 
-        <img src="btns/bt1.png">
+        <img
+            class="themeButtonImage"
+            src="btns/bt1.jpg">
 
         <div id="buttonText">
             click for the wish
         </div>
 
     </div>
-
 
     <div id="instagram">
         inst: himkaqxx
@@ -1114,7 +1115,9 @@ body::before {
 
     <div id="backButton">
 
-        <img src="btns/bt1.png">
+        <img
+            class="themeButtonImage"
+            src="btns/bt1.jpg">
 
         <div id="backArrow">
             ←
@@ -1134,7 +1137,9 @@ body::before {
 
     <div id="heartButton">
 
-        <img src="btns/bt1.png">
+        <img
+            class="themeButtonImage"
+            src="btns/bt1.jpg">
 
         <div id="heartText">
             give me a heart
@@ -1166,7 +1171,9 @@ body::before {
 
         <div id="exitSoundButton">
 
-            <img src="btns/bt1.png">
+            <img
+                class="themeButtonImage"
+                src="btns/bt1.jpg">
 
             <div id="exitSoundText">
                 exit
@@ -1202,13 +1209,30 @@ body::before {
 
 
 /* =========================
-   BACKGROUND SELECTION
+   BACKGROUND + BUTTON THEMES
    ========================= */
 
-const savedBackground =
-    localStorage.getItem(
-        "selectedBackground"
-    );
+const buttonThemes = {
+
+    "bgs/bg1.jpg":
+        "btns/bt1.jpg",
+
+    "bgs/bg2.jpg":
+        "btns/bt2.jpg",
+
+    "bgs/bg3.jpg":
+        "btns/bt6.jpg",
+
+    "bgs/bg4.jpg":
+        "btns/bt4.jpg",
+
+    "bgs/bg5.jpg":
+        "btns/bt5.jpg",
+
+    "bgs/bg6.jpg":
+        "btns/bt3.jpg"
+
+};
 
 
 const backgroundSelector =
@@ -1217,24 +1241,73 @@ const backgroundSelector =
     );
 
 
-/*
-   Set saved background
-*/
+const colorChoices =
+    document.querySelectorAll(
+        ".colorChoice"
+    );
+
+
+const themeButtonImages =
+    document.querySelectorAll(
+        ".themeButtonImage"
+    );
+
+
+/* =========================
+   UPDATE BUTTON THEME
+   ========================= */
+
+function updateButtonTheme(
+    background
+) {
+
+    const buttonImage =
+        buttonThemes[background];
+
+    if (!buttonImage) {
+        return;
+    }
+
+
+    document
+        .querySelectorAll(
+            ".themeButtonImage"
+        )
+        .forEach(
+            function(img) {
+
+                img.src =
+                    buttonImage;
+
+            }
+        );
+
+}
+
+
+/* =========================
+   SAVED BACKGROUND
+   ========================= */
+
+const savedBackground =
+    localStorage.getItem(
+        "selectedBackground"
+    );
+
 
 if (savedBackground) {
 
     document.body.style.backgroundImage =
         `url("${savedBackground}")`;
 
+    updateButtonTheme(
+        savedBackground
+    );
+
     backgroundSelector.style.display =
         "none";
 
 } else {
-
-    /*
-       First launch:
-       show selector
-    */
 
     backgroundSelector.style.display =
         "flex";
@@ -1243,14 +1316,8 @@ if (savedBackground) {
 
 
 /* =========================
-   BACKGROUND CHOICES
+   SELECT BACKGROUND
    ========================= */
-
-const colorChoices =
-    document.querySelectorAll(
-        ".colorChoice"
-    );
-
 
 colorChoices.forEach(
     function(choice) {
@@ -1263,17 +1330,20 @@ colorChoices.forEach(
                     choice.dataset.background;
 
 
-                /*
-                   Change background
-                */
+                /* Change background */
 
                 document.body.style.backgroundImage =
                     `url("${selectedBackground}")`;
 
 
-                /*
-                   Save selection
-                */
+                /* Change buttons */
+
+                updateButtonTheme(
+                    selectedBackground
+                );
+
+
+                /* Save background */
 
                 localStorage.setItem(
                     "selectedBackground",
@@ -1281,9 +1351,7 @@ colorChoices.forEach(
                 );
 
 
-                /*
-                   Hide selector
-                */
+                /* Hide selector */
 
                 backgroundSelector.style.display =
                     "none";
@@ -1320,9 +1388,14 @@ const volumeSlider =
     );
 
 
-backgroundMusic.volume = 0.35;
-clickSound.volume = 0.35;
-heartSound.volume = 0.35;
+backgroundMusic.volume =
+    0.35;
+
+clickSound.volume =
+    0.35;
+
+heartSound.volume =
+    0.35;
 
 
 /* =========================
@@ -1338,7 +1411,10 @@ function startMusic() {
 
     backgroundMusic
         .play()
-        .catch(() => {});
+        .catch(
+            () => {}
+        );
+
 }
 
 
@@ -1373,7 +1449,8 @@ document.addEventListener(
 
 function playClick() {
 
-    clickSound.currentTime = 0;
+    clickSound.currentTime =
+        0;
 
     clickSound.volume =
         Number(
@@ -1382,7 +1459,10 @@ function playClick() {
 
     clickSound
         .play()
-        .catch(() => {});
+        .catch(
+            () => {}
+        );
+
 }
 
 
@@ -1392,7 +1472,8 @@ function playClick() {
 
 function playHeartSound() {
 
-    heartSound.currentTime = 0;
+    heartSound.currentTime =
+        0;
 
     heartSound.volume =
         Number(
@@ -1401,7 +1482,10 @@ function playHeartSound() {
 
     heartSound
         .play()
-        .catch(() => {});
+        .catch(
+            () => {}
+        );
+
 }
 
 
@@ -1507,12 +1591,15 @@ const quotes = [
 ];
 
 
-let lastPicture = -1;
-let lastQuote = -1;
+let lastPicture =
+    -1;
+
+let lastQuote =
+    -1;
 
 
 /* =========================
-   RANDOM
+   RANDOM DIFFERENT
    ========================= */
 
 function randomDifferent(
@@ -1530,12 +1617,16 @@ function randomDifferent(
 
         n =
             Math.floor(
-                Math.random() * length
+                Math.random() *
+                length
             );
 
-    } while (n === last);
+    } while (
+        n === last
+    );
 
     return n;
+
 }
 
 
@@ -1583,10 +1674,15 @@ function showWish() {
 
 
     picture.src =
-        pictures[pictureIndex];
+        pictures[
+            pictureIndex
+        ];
+
 
     quote.textContent =
-        quotes[quoteIndex];
+        quotes[
+            quoteIndex
+        ];
 
 
     document.getElementById(
@@ -1601,9 +1697,7 @@ function showWish() {
         "flex";
 
 
-    /*
-       Restart animations
-    */
+    /* Restart animations */
 
     picture.style.animation =
         "none";
@@ -1709,6 +1803,7 @@ volumeSlider.addEventListener(
             Number(
                 volumeSlider.value
             );
+
 
         backgroundMusic.volume =
             volume;
