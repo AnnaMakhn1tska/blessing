@@ -37,10 +37,11 @@ body {
 }
 
 body {
+
     min-height: 100dvh;
 
     background:
-        url("bgs/bg1.png")
+        url("bgs/bg1.jpg")
         center center /
         cover
         no-repeat;
@@ -48,6 +49,7 @@ body {
     font-family: Arial, sans-serif;
 
     -webkit-tap-highlight-color: transparent;
+
     -webkit-user-select: none;
     user-select: none;
 
@@ -58,41 +60,50 @@ body {
 }
 
 body::before {
+
     content: "";
 
     position: fixed;
+
     inset: 0;
 
     background:
         rgba(0, 0, 0, 0.08);
 
     pointer-events: none;
+
     z-index: 0;
 }
 
 
 /* =========================
-   BACKGROUND SELECTOR
+   COLOR SELECTOR
    ========================= */
 
 #backgroundSelector {
+
     position: fixed;
+
     inset: 0;
 
     display: none;
 
     justify-content: center;
+
     align-items: center;
 
     z-index: 1000;
 }
 
+
 #backgroundBlur {
+
     position: absolute;
+
     inset: 0;
 
     background:
-        rgba(0, 0, 0, 0.18);
+        rgba(0, 0, 0, 0.20);
 
     backdrop-filter:
         blur(18px);
@@ -107,6 +118,7 @@ body::before {
    ========================= */
 
 #colorGrid {
+
     position: relative;
 
     z-index: 1001;
@@ -130,6 +142,7 @@ body::before {
    ========================= */
 
 .colorChoice {
+
     width: 100%;
 
     aspect-ratio: 1 / 1;
@@ -138,11 +151,11 @@ body::before {
 
     border:
         3px solid
-        rgba(255,255,255,0.9);
+        rgba(255,255,255,0.95);
 
     box-shadow:
         0 8px 25px
-        rgba(0,0,0,0.25);
+        rgba(0,0,0,0.28);
 
     cursor: pointer;
 
@@ -157,8 +170,9 @@ body::before {
 }
 
 .colorChoice:active {
+
     transform:
-        scale(0.9);
+        scale(0.90);
 }
 
 
@@ -167,42 +181,62 @@ body::before {
    ========================= */
 
 #pinkChoice {
+
     background: #ff69b4;
-    animation-delay: 0.05s;
+
+    animation-delay:
+        0.05s;
 }
 
 #blueChoice {
+
     background: #3498db;
-    animation-delay: 0.10s;
+
+    animation-delay:
+        0.10s;
 }
 
 #greenChoice {
+
     background: #2ecc71;
-    animation-delay: 0.15s;
+
+    animation-delay:
+        0.15s;
 }
 
 #blackChoice {
+
     background: #111111;
-    animation-delay: 0.20s;
+
+    animation-delay:
+        0.20s;
 }
 
 #yellowChoice {
+
     background: #f1c40f;
-    animation-delay: 0.25s;
+
+    animation-delay:
+        0.25s;
 }
 
 #purpleChoice {
+
     background: #8e44ad;
-    animation-delay: 0.30s;
+
+    animation-delay:
+        0.30s;
 }
 
 
 /* =========================
-   START
+   START SCREEN
    ========================= */
 
 #startScreen {
+
     position: fixed;
+
     inset: 0;
 
     width: 100%;
@@ -215,6 +249,7 @@ body::before {
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     z-index: 2;
@@ -226,6 +261,7 @@ body::before {
    ========================= */
 
 #wishButton {
+
     position: relative;
 
     width:
@@ -239,11 +275,13 @@ body::before {
 }
 
 #wishButton:active {
+
     transform:
         scale(0.94);
 }
 
 #wishButton img {
+
     width: 100%;
     height: auto;
 
@@ -252,10 +290,11 @@ body::before {
 
 
 /* =========================
-   BUTTON TEXT
+   MAIN BUTTON TEXT
    ========================= */
 
 #buttonText {
+
     position: absolute;
 
     left: 50%;
@@ -289,6 +328,7 @@ body::before {
    ========================= */
 
 #instagram {
+
     margin-top: 12px;
 
     color: white;
@@ -311,6 +351,7 @@ body::before {
 
 #soundButton,
 #themeButton {
+
     position: fixed;
 
     right:
@@ -331,9 +372,12 @@ body::before {
 }
 
 
-/* SOUND */
+/* =========================
+   SOUND BUTTON
+   ========================= */
 
 #soundButton {
+
     top:
         calc(
             5px +
@@ -342,9 +386,12 @@ body::before {
 }
 
 
-/* THEME */
+/* =========================
+   COLOR BUTTON
+   ========================= */
 
 #themeButton {
+
     top:
         calc(
             78px +
@@ -355,13 +402,15 @@ body::before {
 
 #soundButton:active,
 #themeButton:active {
+
     transform:
-        scale(0.9);
+        scale(0.90);
 }
 
 
 #soundButton img,
 #themeButton img {
+
     width: 100%;
     height: 100%;
 
@@ -372,11 +421,12 @@ body::before {
 
 
 /* =========================
-   BUTTON TEXT
+   TOP BUTTON TEXT
    ========================= */
 
 #soundText,
 #themeText {
+
     position: absolute;
 
     left: 50%;
@@ -404,11 +454,13 @@ body::before {
 
 
 /* =========================
-   RESULT
+   RESULT SCREEN
    ========================= */
 
 #resultScreen {
+
     position: fixed;
+
     inset: 0;
 
     width: 100%;
@@ -439,6 +491,7 @@ body::before {
    ========================= */
 
 #backButton {
+
     position: fixed;
 
     top:
@@ -465,11 +518,13 @@ body::before {
 }
 
 #backButton:active {
+
     transform:
-        scale(0.9);
+        scale(0.90);
 }
 
 #backButton img {
+
     width: 100%;
     height: 100%;
 
@@ -480,10 +535,11 @@ body::before {
 
 
 /* =========================
-   ARROW
+   BACK ARROW
    ========================= */
 
 #backArrow {
+
     position: absolute;
 
     left: 50%;
@@ -509,10 +565,11 @@ body::before {
 
 
 /* =========================
-   PICTURE
+   WISH PICTURE
    ========================= */
 
 #wishPicture {
+
     width:
         min(68vw, 280px);
 
@@ -543,6 +600,7 @@ body::before {
    ========================= */
 
 #quote {
+
     width:
         min(88vw, 430px);
 
@@ -573,6 +631,7 @@ body::before {
    ========================= */
 
 #heartButton {
+
     position: relative;
 
     width:
@@ -588,11 +647,13 @@ body::before {
 }
 
 #heartButton:active {
+
     transform:
         scale(0.94);
 }
 
 #heartButton img {
+
     width: 100%;
     height: auto;
 
@@ -600,6 +661,7 @@ body::before {
 }
 
 #heartText {
+
     position: absolute;
 
     left: 50%;
@@ -631,19 +693,24 @@ body::before {
    ========================= */
 
 #soundMenu {
+
     position: fixed;
+
     inset: 0;
 
     display: none;
 
     justify-content: center;
+
     align-items: center;
 
     z-index: 1100;
 }
 
 #soundBlur {
+
     position: absolute;
+
     inset: 0;
 
     background:
@@ -657,6 +724,7 @@ body::before {
 }
 
 #soundPanel {
+
     position: relative;
 
     z-index: 1101;
@@ -676,6 +744,7 @@ body::before {
    ========================= */
 
 #volumeSlider {
+
     width:
         min(72vw, 320px);
 
@@ -692,6 +761,7 @@ body::before {
 }
 
 #volumeSlider::-webkit-slider-thumb {
+
     appearance: none;
     -webkit-appearance: none;
 
@@ -707,6 +777,7 @@ body::before {
 }
 
 #volumeSlider::-moz-range-thumb {
+
     width: 30px;
     height: 30px;
 
@@ -720,10 +791,11 @@ body::before {
 
 
 /* =========================
-   EXIT
+   EXIT SOUND
    ========================= */
 
 #exitSoundButton {
+
     position: relative;
 
     width:
@@ -735,17 +807,20 @@ body::before {
 }
 
 #exitSoundButton:active {
+
     transform:
         scale(0.94);
 }
 
 #exitSoundButton img {
+
     width: 100%;
 
     display: block;
 }
 
 #exitSoundText {
+
     position: absolute;
 
     left: 50%;
@@ -777,12 +852,15 @@ body::before {
    ========================= */
 
 #heartMessage {
+
     position: fixed;
+
     inset: 0;
 
     display: none;
 
     justify-content: center;
+
     align-items: center;
 
     padding: 20px;
@@ -801,6 +879,7 @@ body::before {
 
 
 #heartMessageBox {
+
     width:
         min(80vw, 340px);
 
@@ -840,6 +919,7 @@ body::before {
 
 
 #heartEmoji {
+
     display: block;
 
     font-size: 55px;
@@ -871,6 +951,7 @@ body::before {
 @keyframes pictureAppear {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -879,6 +960,7 @@ body::before {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -891,6 +973,7 @@ body::before {
 @keyframes quoteAppear {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -898,6 +981,7 @@ body::before {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -909,6 +993,7 @@ body::before {
 @keyframes heartMessageAppear {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -916,6 +1001,7 @@ body::before {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -927,11 +1013,13 @@ body::before {
 @keyframes heartBeat {
 
     0%, 100% {
+
         transform:
             scale(1);
     }
 
     50% {
+
         transform:
             scale(1.2);
     }
@@ -941,6 +1029,7 @@ body::before {
 @keyframes colorAppear {
 
     from {
+
         opacity: 0;
 
         transform:
@@ -948,6 +1037,7 @@ body::before {
     }
 
     to {
+
         opacity: 1;
 
         transform:
@@ -963,10 +1053,12 @@ body::before {
 @media (max-height: 650px) {
 
     #resultScreen {
+
         padding-top: 10vh;
     }
 
     #wishPicture {
+
         max-height: 30vh;
 
         width:
@@ -974,18 +1066,21 @@ body::before {
     }
 
     #quote {
+
         font-size: 15px;
 
         margin-top: 12px;
     }
 
     #heartButton {
+
         width: 200px;
 
         margin-top: 13px;
     }
 
     #colorGrid {
+
         width:
             min(82vw, 330px);
 
@@ -998,20 +1093,24 @@ body::before {
 @media (max-width: 360px) {
 
     #wishPicture {
+
         width: 60vw;
     }
 
     #quote {
+
         width: 92%;
 
         font-size: 14px;
     }
 
     #heartButton {
+
         width: 190px;
     }
 
     #colorGrid {
+
         width: 82vw;
 
         gap: 10px;
@@ -1040,37 +1139,37 @@ body::before {
         <div
             class="colorChoice"
             id="pinkChoice"
-            data-background="bgs/bg1.png">
+            data-background="bgs/bg1.jpg">
         </div>
 
         <div
             class="colorChoice"
             id="blueChoice"
-            data-background="bgs/bg2.png">
+            data-background="bgs/bg2.jpg">
         </div>
 
         <div
             class="colorChoice"
             id="greenChoice"
-            data-background="bgs/bg3.png">
+            data-background="bgs/bg3.jpg">
         </div>
 
         <div
             class="colorChoice"
             id="blackChoice"
-            data-background="bgs/bg4.png">
+            data-background="bgs/bg4.jpg">
         </div>
 
         <div
             class="colorChoice"
             id="yellowChoice"
-            data-background="bgs/bg5.png">
+            data-background="bgs/bg5.jpg">
         </div>
 
         <div
             class="colorChoice"
             id="purpleChoice"
-            data-background="bgs/bg6.png">
+            data-background="bgs/bg6.jpg">
         </div>
 
     </div>
@@ -1122,7 +1221,7 @@ body::before {
 
 
 <!-- =========================
-     THEME BUTTON
+     COLOR BUTTON
      ========================= -->
 
 <div id="themeButton">
@@ -1264,35 +1363,36 @@ body::before {
 
 <script>
 
+
 /* =========================
-   BACKGROUND + BUTTON THEMES
+   BACKGROUND / BUTTON MAP
    ========================= */
 
 const buttonThemes = {
 
-    "bgs/bg1.png":
+    "bgs/bg1.jpg":
         "btns/bt1.png",
 
-    "bgs/bg2.png":
+    "bgs/bg2.jpg":
         "btns/bt2.png",
 
-    "bgs/bg3.png":
+    "bgs/bg3.jpg":
         "btns/bt6.png",
 
-    "bgs/bg4.png":
+    "bgs/bg4.jpg":
         "btns/bt4.png",
 
-    "bgs/bg5.png":
+    "bgs/bg5.jpg":
         "btns/bt5.png",
 
-    "bgs/bg6.png":
+    "bgs/bg6.jpg":
         "btns/bt3.png"
 
 };
 
 
 /* =========================
-   ELEMENTS
+   COLOR SELECTOR ELEMENTS
    ========================= */
 
 const backgroundSelector =
@@ -1312,7 +1412,7 @@ const themeButton =
 
 
 /* =========================
-   UPDATE BUTTON THEME
+   UPDATE BUTTONS
    ========================= */
 
 function updateButtonTheme(
@@ -1366,7 +1466,7 @@ function applyBackground(
 
 
 /* =========================
-   LOAD SAVED THEME
+   LOAD SAVED BACKGROUND
    ========================= */
 
 const savedBackground =
@@ -1390,7 +1490,7 @@ if (savedBackground) {
 
 
 /* =========================
-   THEME BUTTON
+   COLOR BUTTON
    ========================= */
 
 themeButton.addEventListener(
@@ -1407,7 +1507,7 @@ themeButton.addEventListener(
 
 
 /* =========================
-   SELECT BACKGROUND
+   SELECT COLOR
    ========================= */
 
 colorChoices.forEach(
@@ -1679,7 +1779,9 @@ function randomDifferent(
 ) {
 
     if (length <= 1) {
+
         return 0;
+
     }
 
     let n;
@@ -1775,6 +1877,7 @@ function showWish() {
 
 
     void picture.offsetWidth;
+
     void quote.offsetWidth;
 
 
