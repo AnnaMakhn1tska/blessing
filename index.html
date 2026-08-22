@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               maximum-scale=1.0,
+               user-scalable=no,
+               viewport-fit=cover">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+
+<title>Wish ♡</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    min-height: 100dvh;
+
+    background:
+        url("bgs/bg1.jpg")
+        center center /
+        cover
+        no-repeat;
+
+    font-family: Arial, sans-serif;
+
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.08);
+
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* =========================
+   START
+   ========================= */
+
+#startScreen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 100dvh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   MAIN BUTTON
+   ========================= */
+
+#wishButton {
+    position: relative;
+
+    width: min(720px, 82vw);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.35s ease;
+}
+
+#wishButton:active {
+    transform: scale(0.94);
+}
+
+#wishButton img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* TEXT ON BUTTON */
+
+#buttonText {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 75%;
+
+    color: white;
+
+    font-size:
+        clamp(14px, 3.8vw, 20px);
+
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    text-align: center;
+
+    pointer-events: none;
+
+    text-shadow:
+        1px 1px 3px #9e2164;
+}
+
+
+/* =========================
+   INSTAGRAM
+   ========================= */
+
+#instagram {
+    margin-top: 12px;
+
+    color: white;
+
+    font-size:
+        clamp(14px, 4vw, 20px);
+
+    font-weight: 800;
+
+    text-align: center;
+
+    text-shadow:
+        1px 1px 4px #9e2164;
+}
+
+
+/* =========================
+   SOUND BUTTON
+   ========================= */
+
+#soundButton {
+    position: fixed;
+
+    top:
+        calc(
+            5px +
+            env(safe-area-inset-top)
+        );
+
+    right:
+        calc(
+            8px +
+            env(safe-area-inset-right)
+        );
+
+    width:
+        clamp(65px, 20vw, 105px);
+
+    height:
+        clamp(65px, 20vw, 105px);
+
+    cursor: pointer;
+
+    z-index: 20;
+}
+
+#soundButton:active {
+    transform: scale(0.9);
+}
+
+#soundButton img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+#soundText {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 80%;
+
+    color: white;
+
+    font-size:
+        clamp(12px, 3.5vw, 18px);
+
+    font-weight: 800;
+
+    text-align: center;
+
+    pointer-events: none;
+
+    text-shadow:
+        1px 1px 3px #9e2164;
+}
+
+
+/* =========================
+   RESULT
+   ========================= */
+
+#resultScreen {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 100dvh;
+
+    display: none;
+
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 15vh;
+
+    padding-left: 20px;
+    padding-right: 20px;
+
+    z-index: 2;
+
+    animation:
+        appear 0.6s ease;
+}
+
+
+/* =========================
+   BACK BUTTON
+   ========================= */
+
+#backButton {
+    position: fixed;
+
+    top:
+        calc(
+            3px +
+            env(safe-area-inset-top)
+        );
+
+    left:
+        calc(
+            8px +
+            env(safe-area-inset-left)
+        );
+
+    width:
+        clamp(65px, 20vw, 105px);
+
+    height:
+        clamp(65px, 20vw, 105px);
+
+    cursor: pointer;
+
+    z-index: 20;
+}
+
+#backButton:active {
+    transform: scale(0.9);
+}
+
+#backButton img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* ARROW */
+
+#backArrow {
+    position: absolute;
+
+    left: 50%;
+    top: 44%;
+
+    transform:
+        translate(-50%, -50%);
+
+    color: white;
+
+    font-size:
+        clamp(27px, 8vw, 42px);
+
+    font-weight: 900;
+
+    line-height: 1;
+
+    pointer-events: none;
+
+    text-shadow:
+        1px 1px 3px #9e2164;
+}
+
+
+/* =========================
+   PICTURE
+   ========================= */
+
+#wishPicture {
+    width:
+        min(68vw, 280px);
+
+    max-width: 90vw;
+
+    max-height: 35vh;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 5px 12px
+            rgba(0,0,0,0.25)
+        );
+
+    animation:
+        pictureAppear 0.7s ease;
+}
+
+
+/* =========================
+   QUOTE
+   ========================= */
+
+#quote {
+    width:
+        min(88vw, 430px);
+
+    margin-top: 18px;
+
+    color: white;
+
+    font-size:
+        clamp(15px, 4.7vw, 21px);
+
+    font-weight: 800;
+
+    line-height: 1.3;
+
+    text-align: center;
+
+    text-shadow:
+        1px 1px 4px #9e2164;
+
+    animation:
+        quoteAppear 0.8s ease;
+}
+
+
+/* =========================
+   HEART BUTTON
+   ========================= */
+
+#heartButton {
+    position: relative;
+
+    width:
+        min(250px, 63vw);
+
+    margin-top: 20px;
+
+    cursor: pointer;
+
+    animation:
+        quoteAppear 1s ease;
+}
+
+#heartButton:active {
+    transform: scale(0.94);
+}
+
+#heartButton img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+}
+
+#heartText {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 80%;
+
+    color: white;
+
+    font-size:
+        clamp(13px, 3.8vw, 18px);
+
+    font-weight: 800;
+
+    text-align: center;
+
+    pointer-events: none;
+
+    text-shadow:
+        1px 1px 3px #9e2164;
+}
+
+
+/* =========================
+   SOUND MENU
+   ========================= */
+
+#soundMenu {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 100;
+}
+
+
+#soundBlur {
+    position: absolute;
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.18);
+
+    backdrop-filter:
+        blur(12px);
+
+    -webkit-backdrop-filter:
+        blur(12px);
+}
+
+
+#soundPanel {
+    position: relative;
+
+    z-index: 101;
+
+    width: 85vw;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+/* =========================
+   VOLUME
+   ========================= */
+
+#volumeSlider {
+    width:
+        min(72vw, 320px);
+
+    height: 10px;
+
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: white;
+
+    border-radius: 10px;
+
+    outline: none;
+}
+
+
+#volumeSlider::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    background: #9e2164;
+
+    border: 3px solid white;
+}
+
+
+#volumeSlider::-moz-range-thumb {
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50%;
+
+    background: #9e2164;
+
+    border: 3px solid white;
+}
+
+
+/* =========================
+   EXIT
+   ========================= */
+
+#exitSoundButton {
+    position: relative;
+
+    width:
+        min(220px, 55vw);
+
+    margin-top: 35px;
+
+    cursor: pointer;
+}
+
+#exitSoundButton:active {
+    transform: scale(0.94);
+}
+
+#exitSoundButton img {
+    width: 100%;
+    display: block;
+}
+
+#exitSoundText {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 80%;
+
+    color: white;
+
+    font-size:
+        clamp(15px, 4.5vw, 21px);
+
+    font-weight: 800;
+
+    text-align: center;
+
+    pointer-events: none;
+
+    text-shadow:
+        1px 1px 3px #9e2164;
+}
+
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+@keyframes pictureAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(15px)
+            scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes quoteAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* SMALL SCREENS */
+
+@media (max-height: 650px) {
+
+    #resultScreen {
+        padding-top: 10vh;
+    }
+
+    #wishPicture {
+        max-height: 30vh;
+        width: min(60vw, 230px);
+    }
+
+    #quote {
+        font-size: 15px;
+        margin-top: 12px;
+    }
+
+    #heartButton {
+        width: 200px;
+        margin-top: 13px;
+    }
+}
+
+
+@media (max-width: 360px) {
+
+    #wishPicture {
+        width: 60vw;
+    }
+
+    #quote {
+        width: 92%;
+        font-size: 14px;
+    }
+
+    #heartButton {
+        width: 190px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     MUSIC
+     ========================= -->
+
+<audio
+    id="backgroundMusic"
+    src="sounds/bgn1.mp3"
+    loop
+    preload="auto">
+</audio>
+
+
+<!-- CLICK SOUND -->
+
+<audio
+    id="clickSound"
+    src="sounds/click1.mp3"
+    preload="auto">
+</audio>
+
+
+<!-- =========================
+     SOUND BUTTON
+     ========================= -->
+
+<div id="soundButton">
+
+    <img src="btns/bt1.png">
+
+    <div id="soundText">
+        sound
+    </div>
+
+</div>
+
+
+<!-- =========================
+     START SCREEN
+     ========================= -->
+
+<div id="startScreen">
+
+
+    <div id="wishButton">
+
+        <img src="btns/bt1.png">
+
+        <div id="buttonText">
+            click for the wish
+        </div>
+
+    </div>
+
+
+    <div id="instagram">
+        inst: himkaqxx
+    </div>
+
+
+</div>
+
+
+<!-- =========================
+     RESULT SCREEN
+     ========================= -->
+
+<div id="resultScreen">
+
+
+    <div id="backButton">
+
+        <img src="btns/bt1.png">
+
+        <div id="backArrow">
+            ←
+        </div>
+
+    </div>
+
+
+    <img
+        id="wishPicture"
+        src=""
+        alt="Your wish">
+
+
+    <div id="quote"></div>
+
+
+    <div id="heartButton">
+
+        <img src="btns/bt1.png">
+
+        <div id="heartText">
+            give me a heart
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<!-- =========================
+     SOUND MENU
+     ========================= -->
+
+<div id="soundMenu">
+
+    <div id="soundBlur"></div>
+
+    <div id="soundPanel">
+
+        <input
+            id="volumeSlider"
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.35">
+
+
+        <div id="exitSoundButton">
+
+            <img src="btns/bt1.png">
+
+            <div id="exitSoundText">
+                exit
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   AUDIO
+   ========================= */
+
+const backgroundMusic =
+    document.getElementById(
+        "backgroundMusic"
+    );
+
+const clickSound =
+    document.getElementById(
+        "clickSound"
+    );
+
+const volumeSlider =
+    document.getElementById(
+        "volumeSlider"
+    );
+
+
+backgroundMusic.volume = 0.35;
+clickSound.volume = 0.35;
+
+
+/*
+   iPhone/Safari може блокувати
+   autoplay до першого дотику.
+*/
+
+function startMusic() {
+
+    backgroundMusic.volume =
+        Number(volumeSlider.value);
+
+    backgroundMusic
+        .play()
+        .catch(() => {});
+}
+
+
+window.addEventListener(
+    "load",
+    startMusic
+);
+
+
+document.addEventListener(
+    "touchstart",
+    startMusic,
+    {
+        once: true,
+        passive: true
+    }
+);
+
+
+document.addEventListener(
+    "click",
+    startMusic,
+    {
+        once: true
+    }
+);
+
+
+/* =========================
+   CLICK SOUND
+   ========================= */
+
+function playClick() {
+
+    clickSound.currentTime = 0;
+
+    clickSound.volume =
+        Number(volumeSlider.value);
+
+    clickSound
+        .play()
+        .catch(() => {});
+}
+
+
+/* =========================
+   PICTURES
+   ========================= */
+
+const pictures = [
+
+    "pictures/p1.jpg",
+    "pictures/p2.jpg",
+    "pictures/p3.jpg",
+    "pictures/p4.jpg",
+    "pictures/p5.jpg",
+    "pictures/p6.jpg",
+    "pictures/p7.jpg",
+    "pictures/p8.jpg",
+    "pictures/p9.jpg",
+    "pictures/p10.jpg",
+    "pictures/p11.jpg",
+    "pictures/p12.jpg",
+    "pictures/p13.jpg",
+    "pictures/p14.jpg",
+    "pictures/p15.jpg",
+    "pictures/p16.jpg",
+    "pictures/p17.jpg",
+    "pictures/p18.jpg"
+
+];
+
+
+/* =========================
+   QUOTES
+   ========================= */
+
+const quotes = [
+
+    "May your day be as bright as the morning sun♡",
+
+    "I hope you face the next twenty-four hours with a calm mind and a joyful heart♡",
+
+    "May today bring you small wins, big laughs, and wonderful surprises♡",
+
+    "Wishing you the strength to handle any challenge and the peace to enjoy every quiet moment♡",
+
+    "May your coffee be strong, your tasks be easy, and your mood be cheerful♡",
+
+    "Here is to a day full of fresh energy, new opportunities, and kind people♡",
+
+    "May you feel appreciated, supported, and never alone in whatever you do today♡",
+
+    "I hope your thoughts stay positive and your steps stay light♡",
+
+    "May today bring you closer to your biggest goals and your happiest dreams♡",
+
+    "Have a wonderful day filled with love♡",
+
+    "May your day be filled with good music, great coffee, and zero stress♡",
+
+    "Take a deep breath, smile, and own the day♡",
+
+    "Wishing you a cozy, beautiful, and completely stress-free day♡",
+
+    "May your heart be light and your day be extra sweet♡",
+
+    "Sending a pocketful of sunshine straight to you♡",
+
+    "Hope you feel appreciated, special, and loved today♡",
+
+    "May every moment of today bring a smile to your face♡",
+
+    "Go get 'em! You are going to do amazing things today♡",
+
+    "Wishing you a smooth, happy, and wonderful day from start to finish♡",
+
+    "May your day be as wonderful as you are!♡"
+
+];
+
+
+let lastPicture = -1;
+let lastQuote = -1;
+
+
+/* =========================
+   RANDOM
+   ========================= */
+
+function randomDifferent(
+    length,
+    last
+) {
+
+    if (length <= 1) {
+        return 0;
+    }
+
+    let n;
+
+    do {
+
+        n =
+            Math.floor(
+                Math.random() * length
+            );
+
+    } while (n === last);
+
+    return n;
+}
+
+
+/* =========================
+   SHOW WISH
+   ========================= */
+
+function showWish() {
+
+    playClick();
+
+    startMusic();
+
+
+    const pictureIndex =
+        randomDifferent(
+            pictures.length,
+            lastPicture
+        );
+
+
+    const quoteIndex =
+        randomDifferent(
+            quotes.length,
+            lastQuote
+        );
+
+
+    lastPicture =
+        pictureIndex;
+
+    lastQuote =
+        quoteIndex;
+
+
+    const picture =
+        document.getElementById(
+            "wishPicture"
+        );
+
+    const quote =
+        document.getElementById(
+            "quote"
+        );
+
+
+    picture.src =
+        pictures[pictureIndex];
+
+    quote.textContent =
+        quotes[quoteIndex];
+
+
+    document.getElementById(
+        "startScreen"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "resultScreen"
+    ).style.display = "flex";
+
+
+    /* restart animations */
+
+    picture.style.animation = "none";
+    quote.style.animation = "none";
+
+    void picture.offsetWidth;
+    void quote.offsetWidth;
+
+    picture.style.animation =
+        "pictureAppear 0.7s ease";
+
+    quote.style.animation =
+        "quoteAppear 0.8s ease";
+}
+
+
+/* =========================
+   BACK
+   ========================= */
+
+function goBack() {
+
+    playClick();
+
+    document.getElementById(
+        "resultScreen"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "startScreen"
+    ).style.display = "flex";
+}
+
+
+/* =========================
+   MAIN BUTTON
+   ========================= */
+
+document.getElementById(
+    "wishButton"
+).addEventListener(
+    "click",
+    showWish
+);
+
+
+/* =========================
+   BACK BUTTON
+   ========================= */
+
+document.getElementById(
+    "backButton"
+).addEventListener(
+    "click",
+    goBack
+);
+
+
+/* =========================
+   SOUND MENU
+   ========================= */
+
+const soundMenu =
+    document.getElementById(
+        "soundMenu"
+    );
+
+
+document.getElementById(
+    "soundButton"
+).addEventListener(
+    "click",
+    function() {
+
+        playClick();
+
+        soundMenu.style.display =
+            "flex";
+    }
+);
+
+
+/* =========================
+   VOLUME
+   ========================= */
+
+volumeSlider.addEventListener(
+    "input",
+    function() {
+
+        const volume =
+            Number(
+                volumeSlider.value
+            );
+
+        backgroundMusic.volume =
+            volume;
+
+        clickSound.volume =
+            volume;
+    }
+);
+
+
+/* =========================
+   EXIT SOUND
+   ========================= */
+
+document.getElementById(
+    "exitSoundButton"
+).addEventListener(
+    "click",
+    function() {
+
+        playClick();
+
+        soundMenu.style.display =
+            "none";
+    }
+);
+
+
+/* =========================
+   HEART
+   ========================= */
+
+document.getElementById(
+    "heartButton"
+).addEventListener(
+    "click",
+    function() {
+
+        playClick();
+
+        /*
+          Push-сповіщення тут
+          не створюємо.
+        */
+
+    }
+);
+
+</script>
+
+</body>
+</html>
